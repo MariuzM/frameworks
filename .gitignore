@@ -18,11 +18,13 @@
 .svelte-kit
 .vercel
 .vinxi
+android
 android/
 build
 componentsSecret
 dist
 expo-env.d.ts
+ios
 node_modules
 npm-debug.*
 yarn-debug.*
