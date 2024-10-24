@@ -45,81 +45,97 @@ const Test2Import = createFileRoute('/test2')()
 // Create/Update Routes
 
 const Test3Route = Test3Import.update({
+  id: '/test3',
   path: '/test3',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test2Route = Test2Import.update({
+  id: '/test2',
   path: '/test2',
   getParentRoute: () => rootRoute,
 } as any)
 
 const ContactRoute = ContactImport.update({
+  id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AboutRoute = AboutImport.update({
+  id: '/about',
   path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test5RouteRoute = Test5RouteImport.update({
+  id: '/test5',
   path: '/test5',
   getParentRoute: () => rootRoute,
 } as any)
 
 const IndexRoute = IndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test5IndexRoute = Test5IndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => Test5RouteRoute,
 } as any)
 
 const Test3IndexRoute = Test3IndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => Test3Route,
 } as any)
 
 const TestIndexRoute = TestIndexImport.update({
+  id: '/test/',
   path: '/test/',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AdminIndexRoute = AdminIndexImport.update({
+  id: '/admin/',
   path: '/admin/',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test8TsqRoute = Test8TsqImport.update({
+  id: '/test8/tsq',
   path: '/test8/tsq',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test7SearchRoute = Test7SearchImport.update({
+  id: '/test7/search',
   path: '/test7/search',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test6IdRoute = Test6IdImport.update({
+  id: '/test6/$id',
   path: '/test6/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test5AboutRoute = Test5AboutImport.update({
+  id: '/about',
   path: '/about',
   getParentRoute: () => Test5RouteRoute,
 } as any)
 
 const Test4AuthRoute = Test4AuthImport.update({
+  id: '/test4/auth',
   path: '/test4/auth',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test3AboutRoute = Test3AboutImport.update({
+  id: '/about',
   path: '/about',
   getParentRoute: () => Test3Route,
 } as any)
@@ -135,36 +151,43 @@ const Test2LayoutRoute = Test2LayoutImport.update({
 } as any)
 
 const TestAboutRoute = TestAboutImport.update({
+  id: '/test/about',
   path: '/test/about',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AdminSettingsRoute = AdminSettingsImport.update({
+  id: '/admin/settings',
   path: '/admin/settings',
   getParentRoute: () => rootRoute,
 } as any)
 
 const Test4AuthIndexRoute = Test4AuthIndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => Test4AuthRoute,
 } as any)
 
 const Test2LayoutIndexRoute = Test2LayoutIndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => Test2LayoutRoute,
 } as any)
 
 const Test4AuthAboutRoute = Test4AuthAboutImport.update({
+  id: '/about',
   path: '/about',
   getParentRoute: () => Test4AuthRoute,
 } as any)
 
 const Test2LayoutAboutRoute = Test2LayoutAboutImport.update({
+  id: '/about',
   path: '/about',
   getParentRoute: () => Test2LayoutRoute,
 } as any)
 
 const TestUserAboutRoute = TestUserAboutImport.update({
+  id: '/test/user/about',
   path: '/test/user/about',
   getParentRoute: () => rootRoute,
 } as any)
