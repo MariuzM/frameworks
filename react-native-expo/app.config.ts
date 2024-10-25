@@ -45,14 +45,16 @@ export default (): ExpoConfig => {
 			favicon: './assets/favicon.png',
 		},
 
+		newArchEnabled: false,
+
 		plugins: [
 			'expo-router',
 			[
 				'expo-build-properties',
 				{
 					ios: {
-						newArchEnabled: true,
-						deploymentTarget: '15.0',
+						// newArchEnabled: false,
+						deploymentTarget: '16.0',
 					},
 					android: {
 						// newArchEnabled: true,
