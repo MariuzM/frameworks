@@ -23,13 +23,11 @@ const fetchData = async (page: number) => {
 
 const Tsq = () => {
 	const [page, setPage] = useState(1)
-	const { data, isLoading } = useQuery({
+	const { data } = useQuery({
 		queryKey: ['posts', page],
 		queryFn: () => fetchData(page),
 		placeholderData: keepPreviousData,
 	})
-
-	console.log('🚀 ~ data:', data?.pages)
 
 	return (
 		<div>

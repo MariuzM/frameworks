@@ -1,7 +1,6 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { Button, StyleSheet, Text } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-
 import BottomSheet, { BottomSheetBackdrop, BottomSheetScrollView } from '@gorhom/bottom-sheet'
 
 export const BottomSheetView = () => {
@@ -38,6 +37,7 @@ const css = StyleSheet.create({
 		flex: 1,
 		height: '100%',
 		justifyContent: 'center',
+		width: '100%',
 	},
 	sheetContainer: {
 		flex: 1,
