@@ -31,7 +31,7 @@ const GROUP_NAV = [
 function Root() {
 	return (
 		<>
-			<div className="flex gap-10 p-2 text-lg">
+			{/* <div className="flex gap-10 p-2 text-lg">
 				{GROUP_NAV.map((group, i) => (
 					<div key={i} className="flex flex-col gap-2 bg-gray-600">
 						{group.map(({ to, label }) => (
@@ -42,7 +42,7 @@ function Root() {
 					</div>
 				))}
 			</div>
-			<hr />
+			<hr /> */}
 			<Outlet />
 		</>
 	)

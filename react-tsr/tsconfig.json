@@ -6,7 +6,6 @@
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"paths": { "@/*": ["./src/*"] },
 		"skipLibCheck": true
 	},
 	"include": ["src"],

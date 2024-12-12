@@ -10,7 +10,7 @@ const NAV = [
 	{ label: 'Admin About', href: '/admin/about' },
 ]
 
-export const Nav = () => {
+export const Nav = ({ onEditSave }: { onEditSave: (data: any) => void }) => {
 	const path = usePathname()
 	console.log('🚀 ~ path:', path)
 	return (

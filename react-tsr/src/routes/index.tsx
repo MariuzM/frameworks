@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
+import { Agenda } from '../components/Agenda'
+
 export const Route = createFileRoute('/')({
 	component: Home,
 })
@@ -7,7 +9,7 @@ export const Route = createFileRoute('/')({
 function Home() {
 	return (
 		<div className="p-2">
-			<h3>Welcome Home!</h3>
+			<Agenda />
 		</div>
 	)
 }
