@@ -7,7 +7,7 @@ export const BottomSheetView = () => {
 	const ref = useRef<BottomSheet>(null)
 	const snapPoints = useMemo(() => ['25%', '50%'], [])
 
-	const handleSheetChanges = useCallback((index: number) => {
+	const onChange = useCallback((index: number) => {
 		console.log('handleSheetChanges', index)
 	}, [])
 
@@ -19,9 +19,9 @@ export const BottomSheetView = () => {
 				ref={ref}
 				index={1}
 				snapPoints={snapPoints}
-				onChange={handleSheetChanges}
-				backdropComponent={(props) => {
-					return <BottomSheetBackdrop {...props} onPress={() => ref.current?.close()} />
+				onChange={onChange}
+				backdropComponent={(p) => {
+					return <BottomSheetBackdrop {...p} onPress={() => ref.current?.close()} />
 				}}
 			>
 				<BottomSheetScrollView style={css.sheetContainer}>
@@ -41,11 +41,5 @@ const css = StyleSheet.create({
 	},
 	sheetContainer: {
 		flex: 1,
-	},
-	input: {
-		backgroundColor: 'rgba(151, 151, 151, 0.25)',
-		borderRadius: 10,
-		padding: 12,
-		width: '80%',
 	},
 })
