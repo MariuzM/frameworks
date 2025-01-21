@@ -11,10 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as AuthTestImport } from './routes/auth-test'
 import { Route as IndexImport } from './routes/index'
 import { Route as TableIdTypeImport } from './routes/$table.$id.$type'
 
 // Create/Update Routes
+
+const AuthTestRoute = AuthTestImport.update({
+  id: '/auth-test',
+  path: '/auth-test',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -39,6 +46,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/auth-test': {
+      id: '/auth-test'
+      path: '/auth-test'
+      fullPath: '/auth-test'
+      preLoaderRoute: typeof AuthTestImport
+      parentRoute: typeof rootRoute
+    }
     '/$table/$id/$type': {
       id: '/$table/$id/$type'
       path: '/$table/$id/$type'
@@ -53,36 +67,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth-test': typeof AuthTestRoute
   '/$table/$id/$type': typeof TableIdTypeRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth-test': typeof AuthTestRoute
   '/$table/$id/$type': typeof TableIdTypeRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/auth-test': typeof AuthTestRoute
   '/$table/$id/$type': typeof TableIdTypeRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$table/$id/$type'
+  fullPaths: '/' | '/auth-test' | '/$table/$id/$type'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$table/$id/$type'
-  id: '__root__' | '/' | '/$table/$id/$type'
+  to: '/' | '/auth-test' | '/$table/$id/$type'
+  id: '__root__' | '/' | '/auth-test' | '/$table/$id/$type'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthTestRoute: typeof AuthTestRoute
   TableIdTypeRoute: typeof TableIdTypeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthTestRoute: AuthTestRoute,
   TableIdTypeRoute: TableIdTypeRoute,
 }
 
@@ -97,11 +116,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/auth-test",
         "/$table/$id/$type"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/auth-test": {
+      "filePath": "auth-test.tsx"
     },
     "/$table/$id/$type": {
       "filePath": "$table.$id.$type.tsx"
