@@ -1,4 +1,4 @@
-import { Welcome } from '../welcome/welcome'
+import { Link } from 'react-router'
 
 import type { Route } from './+types/home'
 
@@ -10,5 +10,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-	return <Welcome />
+	return (
+		<div className="flex items-center justify-center pt-16 pb-4">
+			<h1>Home</h1>
+			<Link to="/about">About</Link>
+		</div>
+	)
 }

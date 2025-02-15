@@ -1,4 +1,4 @@
-import './app.css'
+import './styles/app.css'
 
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 
