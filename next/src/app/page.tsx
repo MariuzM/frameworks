@@ -1,3 +1,9 @@
+import { BookCover } from '../components/BookCover'
+
 export default function Home() {
-	return <div>Hello World</div>
+  return (
+    <div>
+      <BookCover />
+    </div>
+  )
 }
