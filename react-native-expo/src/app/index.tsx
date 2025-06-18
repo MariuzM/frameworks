@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import MapView, { Marker } from 'react-native-maps'
 import { create } from 'zustand'
@@ -35,29 +35,20 @@ export default function Home() {
   }
 
   return (
-    <View style={styles.container}>
-      <MapView
-        ref={mapRef}
-        style={styles.map}
-        initialRegion={INITIAL_REGION}
-        showsUserLocation={false}
-        showsMyLocationButton={false}
-        mapType="standard"
-      >
-        <Marker
-          coordinate={MARKER_LOCATION}
-          title="San Francisco"
-          description="Tap to see details"
-          onPress={handleMarkerPress}
-        />
-      </MapView>
+    <GestureHandlerRootView>
+      <View style={{ flex: 1 }}>
+        <MapView ref={mapRef} style={{ flex: 1 }} initialRegion={INITIAL_REGION} mapType="standard">
+          <Marker
+            coordinate={MARKER_LOCATION}
+            title="San Francisco"
+            description="Tap to see details"
+            onPress={handleMarkerPress}
+          />
+        </MapView>
 
-      <View style={styles.buttonContainer}>
-        <Button title="Open From State" onPress={() => bsItemRef?.current?.snapToIndex(1)} />
+        <BSheet />
       </View>
-
-      <BSheet />
-    </View>
+    </GestureHandlerRootView>
   )
 }
 
@@ -72,28 +63,26 @@ const BSheet = () => {
   }, [])
 
   return (
-    <GestureHandlerRootView style={styles.gestureContainer}>
-      <BottomSheet ref={ref} snapPoints={['20%', '50%', '90%']} enablePanDownToClose index={-1}>
-        <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
-          <View style={styles.sheetContent}>
-            {bsItem ? (
-              <Fragment>
-                <Text style={styles.title}>{bsItem.name}</Text>
-                <Text style={styles.description}>{bsItem.description}</Text>
-                {bsItem.coordinates && (
-                  <Text style={styles.coordinates}>
-                    Lat: {bsItem.coordinates.latitude.toFixed(4)}, Lng:{' '}
-                    {bsItem.coordinates.longitude.toFixed(4)}
-                  </Text>
-                )}
-              </Fragment>
-            ) : (
-              <Text style={styles.title}>Awesome 🎉</Text>
-            )}
-          </View>
-        </BottomSheetScrollView>
-      </BottomSheet>
-    </GestureHandlerRootView>
+    <BottomSheet ref={ref} snapPoints={['20%', '50%', '90%']} enablePanDownToClose index={-1}>
+      <BottomSheetScrollView>
+        <View>
+          {bsItem ? (
+            <Fragment>
+              <Text>{bsItem.name}</Text>
+              <Text>{bsItem.description}</Text>
+              {bsItem.coordinates && (
+                <Text>
+                  Lat: {bsItem.coordinates.latitude.toFixed(4)}, Lng:{' '}
+                  {bsItem.coordinates.longitude.toFixed(4)}
+                </Text>
+              )}
+            </Fragment>
+          ) : (
+            <Text>Awesome 🎉</Text>
+          )}
+        </View>
+      </BottomSheetScrollView>
+    </BottomSheet>
   )
 }
 
@@ -123,50 +112,3 @@ const useStore = create<T>((set): T => {
 })
 
 // ------------------------------------------------------------------
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    flex: 1,
-  },
-  buttonContainer: {
-    position: 'absolute',
-    top: 50,
-    left: 20,
-    right: 20,
-    zIndex: 1,
-  },
-  gestureContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    pointerEvents: 'box-none',
-  },
-  contentContainer: {
-    flex: 1,
-  },
-  sheetContent: {
-    flex: 1,
-    backgroundColor: 'white',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 10,
-  },
-  coordinates: {
-    fontSize: 14,
-    color: '#999',
-    fontFamily: 'monospace',
-  },
-})
