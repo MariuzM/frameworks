@@ -59,13 +59,6 @@ export default (): ExpoConfig => {
           backgroundColor: '#ffffff',
         },
       ],
-      [
-        '@rnmapbox/maps',
-        {
-          RNMapboxMapsImpl: 'mapbox',
-          RNMapboxMapsDownloadToken: process.env.MAPS_API_KEY,
-        },
-      ],
     ],
   }
 }
