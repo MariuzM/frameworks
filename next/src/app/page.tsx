@@ -1,12 +1,12 @@
 'use client'
 
-import { Map } from '../components/Map/Map'
+import { MapBox } from '../components/MapBox'
 
 export default function Home() {
   return (
     <>
-      <div className="text-2xl font-bold">Hello World</div>
-      <Map />
+      <div>Hello World</div>
+      <MapBox accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN as string} />
     </>
   )
 }
