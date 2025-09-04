@@ -1,3 +1,10 @@
+import { Map } from '../components/Map/Map'
+
 export default function Home() {
-  return <div>Hello World</div>
+  return (
+    <>
+      <div>Hello World</div>
+      <Map />
+    </>
+  )
 }
