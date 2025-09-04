@@ -1,9 +1,10 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ['@react-pdf/renderer'],
+  images: {
+    domains: ['source.unsplash.com', 'picsum.photos', 'res.cloudinary.com'],
   },
+  devIndicators: false,
 }
 
 export default nextConfig
