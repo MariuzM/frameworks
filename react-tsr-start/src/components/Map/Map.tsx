@@ -24,12 +24,10 @@ const getSeverityColor = (severity: number): string => {
 
 const MapComponent = ({
   className = '',
-  center = [23.8813, 55.1694],
   zoom = 7,
   reports = [],
 }: {
   className?: string
-  center?: [number, number]
   zoom?: number
   reports?: any[]
 }) => {
@@ -98,7 +96,6 @@ const MapComponent = ({
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/light-v11',
-        center,
         zoom,
       })
 
@@ -124,7 +121,7 @@ const MapComponent = ({
       }
       setMapInitialized(false)
     }
-  }, [center, zoom, clearMarkers])
+  }, [clearMarkers, zoom])
 
   useEffect(() => {
     if (!map.current || !mapInitialized) return
